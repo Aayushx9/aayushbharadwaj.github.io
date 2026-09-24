@@ -1,6 +1,6 @@
 # Aayush Bharadwaj — AI / ML Portfolio
 
-A static, recruiter-facing portfolio focused on machine learning, data science, AI agent evaluation, statistical modeling, and scientific computing.
+A static, recruiter-facing portfolio focused on data science, data analysis, machine learning, applied AI, AI engineering, and AI agent evaluation, with computational physics and scientific computing as quantitative foundations.
 
 The site has **no build step and no runtime dependencies**. It runs from `index.html` locally and deploys directly to GitHub Pages.
 
@@ -58,7 +58,8 @@ Project content lives in [`js/projects.js`](./js/projects.js). Each entry can in
 - `name`, `shortName`, `category`, and `description`
 - `categories` used by explorer filters
 - `metric`, `tags`, and optional `github` URL
-- `tier` controls homepage prominence: `1` for featured work, `2` for data/statistics, `3` for research/scientific work
+- `tier` controls homepage prominence: `1` for the six primary featured projects, `2` for secondary ML/AI/data-science projects, `3` for the scientific-foundations archive
+- `liveUrl` is optional and should only be used for a verified live project site
 - `visual` key for a generated CSS/SVG-style visual
 - `details` with any available `problem`, `approach`, `technology`, `results`, and `takeaway`
 - optional `image` and `imageAlt` fields
@@ -110,7 +111,7 @@ Recommended screenshot filenames:
 - `micro.webp`
 - `crispai.webp`
 - `scenescript.webp`
-- `clinsightai.webp`
+- `csci-5612-exoplanets.webp`
 - `github-analysis.webp`
 - `uxposed.webp`
 - `drawquery.webp`
