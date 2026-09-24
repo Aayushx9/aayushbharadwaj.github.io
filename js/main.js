@@ -5,6 +5,8 @@
     ? window.PORTFOLIO_PROJECTS
     : [];
   const featuredProjects = projects.filter((project) => project.tier === 1);
+  const secondaryProjects = projects.filter((project) => project.tier === 2);
+  const foundationProjects = projects.filter((project) => project.tier === 3 && project.categories.includes("scientific-computing"));
   const header = document.querySelector(".site-header");
   const navToggle = document.querySelector(".nav-toggle");
   const navigation = document.querySelector(".primary-nav");
@@ -69,14 +71,17 @@
     const github = project.github
       ? `<a class="project-link" href="${escapeHTML(project.github)}" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>`
       : "";
+    const live = project.liveUrl
+      ? `<a class="project-link" href="${escapeHTML(project.liveUrl)}" target="_blank" rel="noreferrer">Live site <span aria-hidden="true">↗</span></a>`
+      : "";
     const details = includeDetails
       ? `<button class="detail-button" type="button" data-project-id="${escapeHTML(project.id)}">Details <span aria-hidden="true">+</span></button>`
       : "";
-    return `${github}${details}`;
+    return `${github}${live}${details}`;
   };
 
   const featuredCard = (project, index) => `
-    <article class="project-card reveal" data-reveal>
+    <article class="project-card project-card--${escapeHTML(project.id)}${index === 0 ? " project-card--flagship" : ""} reveal" data-reveal data-project-id="${escapeHTML(project.id)}">
       <div class="project-content">
         <span class="project-index">PROJECT / ${String(index + 1).padStart(2, "0")}</span>
         ${project.badge ? `<span class="project-badge">${escapeHTML(project.badge)}</span>` : ""}
@@ -118,7 +123,7 @@
   };
 
   const renderExplorer = () => {
-    if (projectGrid) projectGrid.innerHTML = projects.map(explorerCard).join("");
+    if (projectGrid) projectGrid.innerHTML = secondaryProjects.map(explorerCard).join("");
   };
 
   const sectionMarkup = (title, content) => {
@@ -129,8 +134,10 @@
     return `<section class="modal-section"><h3>${escapeHTML(title)}</h3><div>${body}</div></section>`;
   };
 
+  const getProjectById = (projectId) => projects.find((item) => item.id === projectId);
+
   const openProject = (projectId, trigger) => {
-    const project = projects.find((item) => item.id === projectId);
+    const project = getProjectById(projectId);
     if (!project || !modal || !modalContent) return;
     const details = project.details || {};
     const sections = [
@@ -196,6 +203,24 @@
     document.body.style.overflow = "";
   };
 
+  const openProjectFromEvent = (event) => {
+    const detailButton = event.target.closest("[data-project-id]");
+    if (!detailButton || detailButton.tagName !== "BUTTON") return;
+    openProject(detailButton.dataset.projectId, detailButton);
+  };
+
+  const renderFoundations = () => {
+    const container = document.querySelector("#foundation-projects");
+    if (!container) return;
+    container.innerHTML = foundationProjects.map((project) => `
+      <article class="foundation-row reveal" data-project-id="${escapeHTML(project.id)}">
+        <div class="foundation-index">${String(foundationProjects.indexOf(project) + 1).padStart(2, "0")}</div>
+        <div class="foundation-copy"><h3>${escapeHTML(project.name)}</h3><p>${escapeHTML(project.description)}</p></div>
+        <div class="foundation-meta">${project.tags.slice(0, 3).map((tag) => `<span>${escapeHTML(tag)}</span>`).join("")}</div>
+        <button class="detail-button" type="button" data-project-id="${escapeHTML(project.id)}">Details <span aria-hidden="true">+</span></button>
+      </article>`).join("");
+  };
+
   const setupNavigation = () => {
     let lastFocusedTrigger = null;
     navToggle?.addEventListener("click", () => {
@@ -252,11 +277,7 @@
   };
 
   const setupModal = () => {
-    document.addEventListener("click", (event) => {
-      const detailButton = event.target.closest("[data-project-id]");
-      if (!detailButton || detailButton.tagName !== "BUTTON") return;
-      openProject(detailButton.dataset.projectId, detailButton);
-    });
+    document.addEventListener("click", openProjectFromEvent);
     modalClose?.addEventListener("click", closeProject);
     modal?.addEventListener("click", (event) => {
       if (event.target === modal) closeProject();
@@ -322,6 +343,7 @@
 
   renderFeatured();
   renderExplorer();
+  renderFoundations();
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
       filterButtons.forEach((item) => {

@@ -12,7 +12,7 @@ Place optional project screenshots in this `projects/` directory. The portfolio 
 - `micro.webp`
 - `crispai.webp`
 - `scenescript.webp`
-- `clinsightai.webp`
+- `csci-5612-exoplanets.webp`
 - `github-analysis.webp`
 - `uxposed.webp`
 - `drawquery.webp`
