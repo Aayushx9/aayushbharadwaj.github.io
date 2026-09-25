@@ -14,6 +14,7 @@ window.PORTFOLIO_PROJECTS = Object.freeze([
     categories: ["ai-agents", "machine-learning", "data-science"],
     description: "Building and evaluating an AI agent on a real task, designing quantitative and qualitative measures of performance, implicit behavioral signals, ground truth, and agreement before production deployment.",
     badge: "Current work",
+    github: "https://github.com/Aayushx9/benchmarking-evaluation-layer",
     tags: ["AI Agents", "Agent Evaluation", "Quantitative Evaluation", "Qualitative Evaluation", "Behavioral Signals", "Human Judgment", "Ground Truth", "Inter-Rater Agreement"],
     visual: "evaluation",
     details: {
@@ -73,6 +74,7 @@ window.PORTFOLIO_PROJECTS = Object.freeze([
     description: "Fraudulent job-posting detection using 18 behavioral features, TF-IDF NLP features, and an interpretable XGBoost classifier.",
     metric: { value: "87%", label: "held-out accuracy" },
     tags: ["NLP", "18 Behavioral Features", "TF-IDF", "XGBoost", "SHAP", "Gradio"],
+    github: "https://github.com/Aayushx9/GhostHunt-Jobs",
     visual: "fraud",
     details: {
       problem: "Detect fraudulent job postings from posting behavior and text.",
@@ -166,6 +168,7 @@ window.PORTFOLIO_PROJECTS = Object.freeze([
     categories: ["data-science", "statistics", "ai-agents"],
     description: "Adaptive AI study platform with a Bayesian mastery-modeling engine, full posterior inference, credible intervals, and confidence-/speed-weighted evidence accumulation.",
     tags: ["Bayesian Inference", "Beta-Bernoulli", "Posterior Inference", "Credible Intervals", "Adaptive Learning", "Canvas API"],
+    github: "https://github.com/rohanssaxena/hackcu",
     visual: "mastery",
     details: {
       problem: "Estimate learner mastery and support adaptive study decisions.",
@@ -202,6 +205,7 @@ window.PORTFOLIO_PROJECTS = Object.freeze([
     categories: ["ai-agents", "machine-learning", "data-science"],
     description: "CLIP + LLM pipeline generating timestamped natural-language summaries for video.",
     tags: ["CLIP", "LLM Pipeline", "Multimodal AI", "Video Summaries", "Timestamping"],
+    github: "https://github.com/Aayushx9/SceneScript-AI",
     visual: "field",
     details: {
       problem: "Generate useful natural-language summaries for video content.",
@@ -274,6 +278,7 @@ window.PORTFOLIO_PROJECTS = Object.freeze([
     categories: ["data-science", "scientific-computing"],
     description: "Conflict-free campus event scheduling engine using min-heaps, balanced trees, hash maps, and Dijkstra’s shortest-path routing.",
     tags: ["Min-heaps", "Balanced Trees", "Hash Maps", "Dijkstra", "Complexity Analysis"],
+    github: "https://github.com/AntoniCzolgowski/DSA_1",
     visual: "network",
     details: {
       problem: "Build a conflict-free campus event scheduling engine.",

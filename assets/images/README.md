@@ -16,7 +16,6 @@ Place optional project screenshots in this `projects/` directory. The portfolio 
 - `github-analysis.webp`
 - `uxposed.webp`
 - `drawquery.webp`
-- `nasa-exoplanet.webp`
 - `cmb-firas.webp`
 - `campus-scheduling.webp`
 - `nfl-data-mining.webp`

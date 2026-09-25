@@ -69,10 +69,10 @@
 
   const projectActions = (project, includeDetails = true) => {
     const github = project.github
-      ? `<a class="project-link" href="${escapeHTML(project.github)}" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>`
+      ? `<a class="project-link" href="${escapeHTML(project.github)}" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>`
       : "";
     const live = project.liveUrl
-      ? `<a class="project-link" href="${escapeHTML(project.liveUrl)}" target="_blank" rel="noreferrer">Live site <span aria-hidden="true">↗</span></a>`
+      ? `<a class="project-link" href="${escapeHTML(project.liveUrl)}" target="_blank" rel="noopener noreferrer">Live site <span aria-hidden="true">↗</span></a>`
       : "";
     const details = includeDetails
       ? `<button class="detail-button" type="button" data-project-id="${escapeHTML(project.id)}">Details <span aria-hidden="true">+</span></button>`
@@ -112,7 +112,7 @@
         ${tagsMarkup(project, 4)}
         <div class="card-footer">
           ${projectActions(project)}
-          ${project.github ? `<a class="card-github" href="${escapeHTML(project.github)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeHTML(project.name)} on GitHub">GH</a>${project.externalRepository ? '<span class="external-note">external</span>' : ""}` : ""}
+          ${project.externalRepository ? '<span class="external-note">external</span>' : ""}
         </div>
       </div>
     </article>`;
@@ -217,7 +217,10 @@
         <div class="foundation-index">${String(foundationProjects.indexOf(project) + 1).padStart(2, "0")}</div>
         <div class="foundation-copy"><h3>${escapeHTML(project.name)}</h3><p>${escapeHTML(project.description)}</p></div>
         <div class="foundation-meta">${project.tags.slice(0, 3).map((tag) => `<span>${escapeHTML(tag)}</span>`).join("")}</div>
-        <button class="detail-button" type="button" data-project-id="${escapeHTML(project.id)}">Details <span aria-hidden="true">+</span></button>
+        <div class="foundation-actions">
+          ${project.github ? `<a class="project-link" href="${escapeHTML(project.github)}" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>` : ""}
+          <button class="detail-button" type="button" data-project-id="${escapeHTML(project.id)}">Details <span aria-hidden="true">+</span></button>
+        </div>
       </article>`).join("");
   };
 
