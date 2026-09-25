@@ -35,6 +35,7 @@ The site has **no build step and no runtime dependencies**. It runs from `index.
 │   ├── icons/
 │   │   └── README.md
 │   └── resume/
+│       ├── Aayush_Bharadwaj_Resume.pdf
 │       └── README.md
 └── .github/
     └── workflows/
@@ -115,7 +116,6 @@ Recommended screenshot filenames:
 - `github-analysis.webp`
 - `uxposed.webp`
 - `drawquery.webp`
-- `nasa-exoplanet.webp`
 - `cmb-firas.webp`
 - `campus-scheduling.webp`
 - `nfl-data-mining.webp`
